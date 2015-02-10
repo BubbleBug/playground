@@ -24,7 +24,7 @@ public class LinkedListBuilder<T> {
         }
     }
 
-    public void addNodes(List<T> values) {
+    public void addNodes(T ... values) {
         for (T value : values) {
             addNode(value);
         }

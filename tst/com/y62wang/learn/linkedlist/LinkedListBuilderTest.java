@@ -46,13 +46,7 @@ public class LinkedListBuilderTest {
 
     @Test
     public void testAddAListOfNodesBuildsAListWithTheSameLengthAsTheList() {
-        List<Integer> numberList = new ArrayList<Integer>();
-        numberList.add(1);
-        numberList.add(2);
-        numberList.add(3);
-        numberList.add(4);
-
-        linkedListBuilder.addNodes(numberList);
+        linkedListBuilder.addNodes(1, 2, 3, 4);
         Node<Integer> head = linkedListBuilder.build();
 
         assertListLength(head, 4);
