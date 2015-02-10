@@ -19,13 +19,13 @@ public class LinkedListBuilderTest {
 
     @Test
     public void testNewBuilderBuildsNullLinkedList() {
-        Node<Integer> head = linkedListBuilder.build();
+        final Node<Integer> head = linkedListBuilder.build();
         Assert.assertNull("a new linked-list builder should return null as list head.", head);
     }
 
     @Test
     public void testAddOneNodeBuildsAListOfLengthOne() {
-        int value = 3;
+        final int value = 3;
         linkedListBuilder.addNode(value);
         Node<Integer> head = linkedListBuilder.build();
         Assert.assertEquals(Integer.valueOf(value), head.getValue());
@@ -34,12 +34,12 @@ public class LinkedListBuilderTest {
 
     @Test
     public void testAddNodesThreeTimesBuildsAListOfLengthThree() {
-        int value = 3;
+        final int value = 3;
         linkedListBuilder.addNode(value);
         linkedListBuilder.addNode(value);
         linkedListBuilder.addNode(value);
 
-        Node<Integer> head = linkedListBuilder.build();
+        final Node<Integer> head = linkedListBuilder.build();
 
         assertListLength(head, 3);
     }
@@ -47,16 +47,16 @@ public class LinkedListBuilderTest {
     @Test
     public void testAddAListOfNodesBuildsAListWithTheSameLengthAsTheList() {
         linkedListBuilder.addNodes(1, 2, 3, 4);
-        Node<Integer> head = linkedListBuilder.build();
+        final Node<Integer> head = linkedListBuilder.build();
 
         assertListLength(head, 4);
     }
 
-    private void assertListLength(Node head, final int expectedLength) {
+    private void assertListLength(final Node head, final int expectedLength) {
         int length = 0;
         Node currentNode = head;
 
-        while(currentNode != null) {
+        while (currentNode != null) {
             length++;
             currentNode = currentNode.getNext();
         }
