@@ -25,7 +25,7 @@ public class RemoveMiddleNodeAlgorithmTest {
         builder.addNode(1);
         RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(builder.build());
         Node<Integer> result = removeMidNodeAlgorithm.run();
-        Assert.assertNull(null);
+        Assert.assertNull(result);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class RemoveMiddleNodeAlgorithmTest {
         Node<Integer> head = builder.build();
         RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(head);
         Node<Integer> result = removeMidNodeAlgorithm.run();
-        Assert.assertEquals(head, result);
+        Assert.assertSame(head, result);
         Assert.assertNull(result.getNext());
     }
 
@@ -44,7 +44,7 @@ public class RemoveMiddleNodeAlgorithmTest {
         Node<Integer> head = builder.build();
         RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(head);
         Node<Integer> result = removeMidNodeAlgorithm.run();
-        Assert.assertEquals(head, result);
+        Assert.assertSame(head, result);
         Assert.assertEquals(Integer.valueOf(3), head.getNext().getValue());
     }
 
