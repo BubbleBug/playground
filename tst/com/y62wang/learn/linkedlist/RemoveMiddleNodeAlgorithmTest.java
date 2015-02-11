@@ -15,7 +15,7 @@ public class RemoveMiddleNodeAlgorithmTest {
 
     @Test
     public void testRemoveMiddleNodeFromNullLinkedListReturnsNullHead() {
-        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(null);
+        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm<Integer>(null);
         Node<Integer> result = removeMidNodeAlgorithm.run();
         Assert.assertNull(result);
     }
@@ -23,7 +23,7 @@ public class RemoveMiddleNodeAlgorithmTest {
     @Test
     public void testRemoveMiddleNodeFromSingleItemLinkedListReturnsNullHead() {
         builder.addNode(1);
-        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(builder.build());
+        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm<Integer>(builder.build());
         Node<Integer> result = removeMidNodeAlgorithm.run();
         Assert.assertNull(result);
     }
@@ -32,7 +32,7 @@ public class RemoveMiddleNodeAlgorithmTest {
     public void testRemoveMiddleNodeFromTwoItemLinkedListReturnsFirstNode() {
         builder.addNodes(1, 2);
         Node<Integer> head = builder.build();
-        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(head);
+        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm<Integer>(head);
         Node<Integer> result = removeMidNodeAlgorithm.run();
         Assert.assertSame(head, result);
         Assert.assertNull(result.getNext());
@@ -42,7 +42,7 @@ public class RemoveMiddleNodeAlgorithmTest {
     public void testRemoveMiddleNodeFromThreeItemLinkedListReturnsFirstNode() {
         builder.addNodes(1,2,3);
         Node<Integer> head = builder.build();
-        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(head);
+        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm<Integer>(head);
         Node<Integer> result = removeMidNodeAlgorithm.run();
         Assert.assertSame(head, result);
         Assert.assertEquals(Integer.valueOf(3), head.getNext().getValue());
@@ -53,10 +53,10 @@ public class RemoveMiddleNodeAlgorithmTest {
     public void testRemoveMiddleNodeFromMultipleItemsLinkedListReturnsFirstNode() {
         builder.addNodes(1,2,3,4,5,6,7,8,9);
         Node<Integer> head = builder.build();
-        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm(head);
+        RemoveMiddleNodeAlgorithm<Integer> removeMidNodeAlgorithm = new RemoveMiddleNodeAlgorithm<Integer>(head);
         Node<Integer> result = removeMidNodeAlgorithm.run();
 
-        Node currentNode = result;
+        Node<Integer> currentNode = result;
 
         while(currentNode != null) {
             Assert.assertFalse(Integer.valueOf(5).equals(currentNode.getValue()));
