@@ -86,7 +86,7 @@ public class Trie {
         }
 
         public TrieNode(final int value) {
-            this.value = 0;
+            this.value = value;
             children = new TrieNode[ENDING_ALPHABET - STARTING_ALPHABET + 1];
         }
 
