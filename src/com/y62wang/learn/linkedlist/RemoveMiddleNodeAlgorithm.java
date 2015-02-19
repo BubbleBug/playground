@@ -20,7 +20,7 @@ public class RemoveMiddleNodeAlgorithm<T> implements IAlgorithm {
     }
 
     private Node<T> removeMiddleNode(final Node<T> head) {
-        if(head == null || head.getNext() == null) {
+        if (head == null || head.getNext() == null) {
             return null;
         }
 
@@ -29,9 +29,9 @@ public class RemoveMiddleNodeAlgorithm<T> implements IAlgorithm {
         Node<T> slowNodePrev = head;
         boolean moveSlowerNode = false;
 
-        while(fastNode != null) {
+        while (fastNode != null) {
             fastNode = fastNode.getNext();
-            if(moveSlowerNode == false) {
+            if (!moveSlowerNode) {
                 moveSlowerNode = true;
             } else {
                 slowNodePrev = slowNode;

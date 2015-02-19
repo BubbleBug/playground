@@ -12,7 +12,7 @@ public class BinaryTreeNode<T> {
         return left;
     }
 
-    public void setLeft(BinaryTreeNode<T> left) {
+    public void setLeft(final BinaryTreeNode<T> left) {
         this.left = left;
     }
 
@@ -20,7 +20,7 @@ public class BinaryTreeNode<T> {
         return right;
     }
 
-    public void setRight(BinaryTreeNode<T> right) {
+    public void setRight(final BinaryTreeNode<T> right) {
         this.right = right;
     }
 
@@ -28,7 +28,7 @@ public class BinaryTreeNode<T> {
         return value;
     }
 
-    public void setValue(T value) {
+    public void setValue(final T value) {
         this.value = value;
     }
 }

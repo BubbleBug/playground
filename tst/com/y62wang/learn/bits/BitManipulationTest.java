@@ -1,6 +1,6 @@
 package com.y62wang.learn.bits;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class BitManipulationTest {
@@ -23,7 +23,9 @@ public class BitManipulationTest {
 
     @Test
     public void testTwoNumbersAreEqualUsingXOR() {
-        int x = 10, y = 10, z = 11;
+        final int x = 10;
+        final int y = 10;
+        final int z = 11;
 
         // anything XOR with 0 is itself
         Assert.assertEquals(x, x ^ 0);
@@ -36,14 +38,17 @@ public class BitManipulationTest {
 
     @Test
     public void testDefiningXORUsingOtherLogicalOperators() {
-        int x = 10, y = 100;
+        final int x = 10;
+        final int y = 100;
         // defining XOR without using the ^ symbol
         Assert.assertEquals(x ^ y, (x & ~y) | (y & ~x));
     }
 
     @Test
     public void testApplyXOREvenNumberOfTimesReturnsOriginalNumber() {
-        int x = 10, y = 123, result = x;
+        final int x = 10;
+        final int y = 123;
+        int result = x;
         for(int i = 0;i<10;i++) {
             result = result ^ y;
         }
@@ -63,14 +68,15 @@ public class BitManipulationTest {
     @Test
     public void testUsingIntegerAsASet() {
         // using the 32 bits as a set, where value 1 in a bit means the object is in the set
-        int setA = 12345, setB = 56789;
+        final int setA = 12345;
+        final int setB = 56789;
 
-        int setUnion = (setA | setB);
-        int setIntersection = (setA & setB);
-        int setSubtraction = setA & ~setB;
-        int setNegation = Integer.MAX_VALUE ^ setA;
-        int setBit = setA | 1 << 5; // set the 5th bit
-        int clearBit = setA & ~(1 << 5); // clear the 5th bit
+        final int setUnion = (setA | setB);
+        final int setIntersection = (setA & setB);
+        final int setSubtraction = setA & ~setB;
+        final int setNegation = Integer.MAX_VALUE ^ setA;
+        final int setBit = setA | 1 << 5; // set the 5th bit
+        final int clearBit = setA & ~(1 << 5); // clear the 5th bit
 
         // first bit of setA should be set
         Assert.assertTrue((setA & 1) != 0);
@@ -78,9 +84,9 @@ public class BitManipulationTest {
 
     @Test
     public void testFindFirstNoneEmptyBitInAnInteger() {
-        int x = 10; // in binary: 1010, highestBit is 4th bit from right
+        final int x = 10; // in binary: 1010, highestBit is 4th bit from right
         int result = 0;
-        for(int bitShift=31;bitShift>=0;bitShift--) {
+        for(int bitShift=31;bitShift>0;bitShift--) {
             if((x & (1 << bitShift)) != 0) {
                 result = bitShift;
                 break;

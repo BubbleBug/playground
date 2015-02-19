@@ -7,7 +7,7 @@ public class Node<T> {
     private T value;
     private Node<T> next;
 
-    public Node(T value) {
+    public Node(final T value) {
         setValue(value);
     }
 
@@ -15,7 +15,7 @@ public class Node<T> {
         return value;
     }
 
-    public void setValue(T value) {
+    public void setValue(final T value) {
         this.value = value;
     }
 
@@ -23,7 +23,7 @@ public class Node<T> {
         return next;
     }
 
-    public void setNext(Node<T> next) {
+    public void setNext(final Node<T> next) {
         this.next = next;
     }
 }

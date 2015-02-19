@@ -5,9 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LinkedListBuilderTest {
 
     private LinkedListBuilder<Integer> linkedListBuilder;
@@ -27,7 +24,7 @@ public class LinkedListBuilderTest {
     public void testAddOneNodeBuildsAListOfLengthOne() {
         final int value = 3;
         linkedListBuilder.addNode(value);
-        Node<Integer> head = linkedListBuilder.build();
+        final Node<Integer> head = linkedListBuilder.build();
         Assert.assertEquals(Integer.valueOf(value), head.getValue());
         Assert.assertNull("The next node should be null", head.getNext());
     }
