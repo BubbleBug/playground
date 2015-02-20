@@ -8,6 +8,10 @@ package com.y62wang.learn.trie;
  * All the descendants of a node have a common prefix
  * Values are normally associated with every node, only leaves and some inner nodes that
  * correspond to key of interest
+ *
+ * space complexity: O(ALPHABET_SIZE * average_key_length * N)
+ * look-up: O(m) where m is the length of the word
+ * add: O(m) where m is the length of the word
  */
 public class Trie {
     private static final char STARTING_ALPHABET = 'a';
