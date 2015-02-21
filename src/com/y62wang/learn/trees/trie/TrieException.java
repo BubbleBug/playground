@@ -1,4 +1,4 @@
-package com.y62wang.learn.trie;
+package com.y62wang.learn.trees.trie;
 
 public class TrieException extends Exception {
     public TrieException(final String message) {

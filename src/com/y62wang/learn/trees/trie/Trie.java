@@ -1,4 +1,4 @@
-package com.y62wang.learn.trie;
+package com.y62wang.learn.trees.trie;
 
 /**
  * A trie (prefix tree) used to store data with a set of keys and values

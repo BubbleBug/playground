@@ -1,4 +1,4 @@
-package com.y62wang.learn.trie;
+package com.y62wang.learn.trees.trie;
 
 import org.junit.Assert;
 import org.junit.Before;
