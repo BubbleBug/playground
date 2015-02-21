@@ -1,12 +1,11 @@
 package com.y62wang.learn.linkedlist;
 
 import com.y62wang.learn.basic.Node;
-import com.y62wang.learn.framework.IAlgorithm;
 
 /**
  * Given a linked list, remove and return the head of the modified list
  */
-public class RemoveMiddleNodeAlgorithm<T> implements IAlgorithm {
+public class RemoveMiddleNodeAlgorithm<T> {
 
     private final Node<T> head;
 
@@ -14,7 +13,6 @@ public class RemoveMiddleNodeAlgorithm<T> implements IAlgorithm {
         this.head = head;
     }
 
-    @Override
     public Node<T> run() {
         return removeMiddleNode(head);
     }
