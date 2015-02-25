@@ -4,6 +4,7 @@ import com.y62wang.learn.TestConstants;
 import com.y62wang.learn.utils.BatchInputGenerator;
 import junit.framework.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -55,6 +56,24 @@ public class BinarySearchTreeTest {
         }
     }
 
+    @Ignore
+    @Test
+    public void testAverageTreeHeightForRandomlyBuiltTrees() {
+        final int count = 100;
+        int totalHeight = 0;
+        for(int i=0;i<count;i++) {
+            final List<Integer> integers = integerBatchInputGenerator.generateBatch(100000);
+            bst = new BinarySearchTree<Integer, Integer>();
+            for(final Integer integer : integers) {
+                bst.insert(integer, integer);
+            }
+            final int height = bst.height();
+            totalHeight += height;
+            System.out.println("Height: " + height);
+        }
+        System.out.println("Average tree height:" + totalHeight/count);
+    }
+
     private void validateOrderedKeys() {
         final List<Integer> orderedKeys = bst.getOrderedKeys();
         if(orderedKeys.size()==0) {
@@ -68,7 +87,6 @@ public class BinarySearchTreeTest {
             }
             first = orderedKey;
         }
-
     }
 
 }

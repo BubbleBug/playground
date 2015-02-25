@@ -15,7 +15,19 @@ public class BinarySearchTree<K extends Comparable<K>, T> {
 
     private Node<K,T> root;
 
-    public BinarySearchTree() {
+    private Node<K,T> binarySearch(final K key) {
+        Node<K,T> currentNode = root;
+        while(currentNode != null) {
+            final int comparisonResult = key.compareTo(currentNode.key);
+            if(comparisonResult == 0) {
+                return currentNode;
+            } else if(comparisonResult < 0) {
+                currentNode = currentNode.left;
+            } else {
+                currentNode = currentNode.right;
+            }
+        }
+        return currentNode;
     }
 
     public void insert(final K key, final T val) {
@@ -84,6 +96,43 @@ public class BinarySearchTree<K extends Comparable<K>, T> {
             }
     }
 
+    public T search(final K key) {
+        final Node<K, T> result = binarySearch(key);
+        return result == null ? null : result.value;
+    }
+
+    public K getMaximum() {
+        if(root == null) {
+            return null;
+        }
+        return getMaximum(root).key;
+    }
+
+    public K getMinimum() {
+        if(root == null) {
+            return null;
+        }
+        return getMinimum(root).key;
+    }
+
+    public void clear() {
+        root = null;
+    }
+
+    public void printTree() {
+        printTree(root);
+    }
+
+    public List<K> getOrderedKeys() {
+        final List<K> keys = new ArrayList<K>();
+        writeOrderedKeys(root, keys);
+        return keys;
+    }
+
+    public int height() {
+        return height(root);
+    }
+
     @VisibleForTesting
     public Node<K,T> getPredecessor(final Node<K,T> node) {
         if(node.left!=null) {
@@ -110,15 +159,6 @@ public class BinarySearchTree<K extends Comparable<K>, T> {
         return parent;
     }
 
-    public T search(final K key) {
-        final Node<K, T> result = binarySearch(key);
-        return result == null ? null : result.value;
-    }
-
-    public void clear() {
-        root = null;
-    }
-
     @VisibleForTesting
     public Node<K,T> getMaximum(final Node<K,T> node) {
         if(node == null) {
@@ -130,20 +170,6 @@ public class BinarySearchTree<K extends Comparable<K>, T> {
             currentNode = currentNode.right;
         }
         return currentNode;
-    }
-
-    public K getMaximum() {
-        if(root == null) {
-            return null;
-        }
-        return getMaximum(root).key;
-    }
-
-    public K getMinimum() {
-        if(root == null) {
-            return null;
-        }
-        return getMinimum(root).key;
     }
 
     @VisibleForTesting
@@ -159,10 +185,6 @@ public class BinarySearchTree<K extends Comparable<K>, T> {
         return currentNode;
     }
 
-    public void printTree() {
-        printTree(root);
-    }
-
     private void printTree(final Node<K,T> node) {
         if(node == null) {
             return;
@@ -174,10 +196,15 @@ public class BinarySearchTree<K extends Comparable<K>, T> {
 
     }
 
-    public List<K> getOrderedKeys() {
-        final List<K> keys = new ArrayList<K>();
-        writeOrderedKeys(root, keys);
-        return keys;
+    private int height(final Node<K,T> root) {
+        if(root == null) {
+            return 0;
+        }
+
+        final int heightLeft = height(root.left);
+        final int heightRight = height(root.right);
+
+        return Math.max(heightLeft, heightRight) + 1;
     }
 
     private void writeOrderedKeys(final Node<K,T> node, final List<K> list) {
@@ -188,21 +215,6 @@ public class BinarySearchTree<K extends Comparable<K>, T> {
         writeOrderedKeys(node.left, list);
         list.add(node.key);
         writeOrderedKeys(node.right, list);
-    }
-
-    private Node<K,T> binarySearch(final K key) {
-        Node<K,T> currentNode = root;
-        while(currentNode != null) {
-            final int comparisonResult = key.compareTo(currentNode.key);
-            if(comparisonResult == 0) {
-                return currentNode;
-            } else if(comparisonResult < 0) {
-                currentNode = currentNode.left;
-            } else {
-                currentNode = currentNode.right;
-            }
-        }
-        return currentNode;
     }
 
     @VisibleForTesting
