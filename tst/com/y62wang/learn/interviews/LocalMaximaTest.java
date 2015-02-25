@@ -28,33 +28,33 @@ public class LocalMaximaTest {
 
     @Test
     public void testInputArrayWithSizeZeroThrowsIllegalStateException() {
-        int[] numbers = new int[0];
+        final int[] numbers = new int[0];
         expectedException.expect(IllegalStateException.class);
         localMaxima.getLocalMaxima(numbers);
     }
 
     @Test
     public void testIntArrayWithOneElement() throws Exception {
-        int[] numbers = new int[] {1};
+        final int[] numbers = new int[] {1};
         Assert.assertEquals(1, localMaxima.getLocalMaxima(numbers));
     }
 
     @Test
     public void testIntArrayWithTwoElement() throws Exception {
-        int[] numbers = new int[] {1,2};
+        final int[] numbers = new int[] {1,2};
         Assert.assertEquals(2, localMaxima.getLocalMaxima(numbers));
     }
 
     @Test
     public void testIntArrayWithTwoElementInReverseOrder() throws Exception {
-        int[] numbers = new int[] {2,1};
+        final int[] numbers = new int[] {2,1};
         Assert.assertEquals(2, localMaxima.getLocalMaxima(numbers));
     }
 
     @Test
     public void testIntArrayWithMultipleMaximaShouldReturnOneOfThePossibleLocalMaxima() throws Exception {
-        int[] numbers = new int[] {2,1,1,3,2,5,6,8,2,};
-        Set<Integer> possibleMaxima = new HashSet<Integer>();
+        final int[] numbers = new int[] {2,1,1,3,2,5,6,8,2,};
+        final Set<Integer> possibleMaxima = new HashSet<Integer>();
         possibleMaxima.add(2);
         possibleMaxima.add(3);
         possibleMaxima.add(8);
